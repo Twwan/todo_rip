@@ -29,7 +29,9 @@ export const userIniter = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
+    },
+    {sequelize, tableName: "users"}
+)
 
     return() =>{
         User.hasMany(ToDo, {foreignKey: "userId", onDelete: "CASCADE"})

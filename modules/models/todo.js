@@ -24,8 +24,9 @@ export const todoIniter = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
         }
-    })
-
+    },
+    {sequelize, tableName: "todos"})
+    
     return() =>{
         ToDo.belongsTo(User, {foreignKey: "userId", onDelete: "CASCADE"})
     }

@@ -1,4 +1,3 @@
-import express from "express";
 import myRouter from "./modules/todo/router.js";
 import Server from "./core/server.js";
 import DatabaseAdapter from "./core/db_adapter.js";
