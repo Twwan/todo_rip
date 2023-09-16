@@ -4,6 +4,7 @@ import DatabaseAdapter from "./core/db_adapter.js";
 import { Sequelize } from "sequelize";
 import modelList from "./modules/models/_index.js";
 import Routing from "./core/router.js";
+import UserRouter from "./modules/user/router.js"
 
 const APP_PORT = process.env.PORT || 8080
 const GLOBAL_PREFIX = process.env.GLOBAL_PREFIX || ""
@@ -19,7 +20,8 @@ new Server(APP_PORT, [
         })
     ).registerModels([... modelList]),
     new Routing(GLOBAL_PREFIX, [
-        {router: myRouter, prefix: ""}
+        {router: myRouter, prefix: ""},
+        {router: UserRouter, prefix: "/profile"}
     ])
 ])
 .initServices().then((server) => server.run(() => console.log(`Server started on port: ${APP_PORT}`)))
